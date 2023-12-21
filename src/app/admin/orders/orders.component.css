@@ -1,0 +1,62 @@
+/* Orders Component Styles */
+.orders-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: antiquewhite;
+  font-family: Arial, sans-serif;
+}
+
+.orders-list {
+  margin-top: 20px;
+}
+
+.order-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.order-details {
+  flex: 1;
+}
+
+.order-id {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.order-date,
+.order-customer {
+  margin-bottom: 10px;
+  color: #777;
+}
+
+.order-actions {
+  display: flex;
+  align-items: center;
+}
+
+.view-details-btn {
+  padding: 8px 16px;
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #e0494e;
+}

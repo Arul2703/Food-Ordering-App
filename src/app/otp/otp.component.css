@@ -1,0 +1,50 @@
+.otp-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.otp-input {
+  margin-bottom: 10px;
+}
+
+.otp-input input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.otp-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resend-btn,
+.verify-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.resend-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.verify-btn {
+  background-color: #4CAF50;
+  color: #250a0a;
+}
+
+.resend-timer {
+  margin-left: 10px;
+}
+
+.otp-error {
+  color: red;
+  margin-top: 10px;
+}

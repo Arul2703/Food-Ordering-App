@@ -1,0 +1,16 @@
+<div class="admin-wrapper">
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/admin/dashboard"><i class="fas fa-chart-bar"></i>Dashboard</a></li>
+      <li><a routerLink="/admin/orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+      <li><a routerLink="/admin/food-items">Food Items</a></li>
+      <li><a routerLink="/admin/payments">Payments</a></li>
+      <!-- Add more sidebar items as needed -->
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <!-- This will be the area where different components will load based on routing -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

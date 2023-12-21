@@ -1,0 +1,67 @@
+.menu-item-container {
+  position: relative;
+}
+
+.add-menu-item-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #ff5851;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-items-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.menu-items-table th,
+.menu-items-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.menu-items-table th {
+  border-bottom: none;
+}
+
+.menu-items-table td {
+  border-bottom: none;
+}
+
+.menu-items-table td:last-child {
+  text-align: center;
+}
+
+.food-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 4px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #f2f2f2;
+  color: #333;
+  margin-right: 4px;
+}
+
+.delete-btn {
+  background-color: #ff5851;
+  color: #fff;
+}

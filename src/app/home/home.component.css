@@ -1,0 +1,410 @@
+
+/*
+.curved-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.left-content {
+  flex: 1;
+  color: #fff;
+}
+
+.restaurant-name {
+  color: rgb(51, 44, 72);
+  font-size: 64px;
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-family: 'Open Sans', sans-serif;
+}
+.restaurant-quote{
+  color: rgb(51, 44, 72);
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(51, 44, 72);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.menu-button:hover{
+  background-color: rgb(86, 69, 135);
+}
+
+.right-content img {
+  max-width: 100%;
+  max-height: 500px;
+  height: auto;
+}
+
+.premium-foods-container {
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.premium-foods-title {
+  font-size: 47px;
+  color: rgb(51, 44, 72);
+  margin-bottom: 20px;
+}
+
+.food-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.food-image {
+  width: 30%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20%;
+  background-color: rgb(51, 44, 72);
+}
+
+.food-image img {
+  width: 100%;
+  height: 250px;
+}
+.why-choose-us-container {
+  padding: 40px;
+  text-align: center;
+  color: #000;
+}
+
+.why-choose-us-title {
+  font-size: 47px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.image-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-container {
+  width: 300px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 230px;
+}
+
+.image-title {
+  margin-top: 10px;
+  font-size: 24px;
+}
+*/
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set box-sizing to border-box to include padding and border in the element's total width */
+* {
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Common styles for titles and text */
+h1, h2, h3, p {
+  color: rgb(51, 44, 72);
+  font-weight: 700;
+}
+.background-wrapper{
+  /* background-color: antiquewhite; */
+  margin: 0;
+}
+
+/* Styles for the curved-container section */
+.curved-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  padding: 20px;
+}
+
+.left-content {
+  flex: 1;
+  color: #fff;
+  text-align: left;
+  text-align:start;
+
+  /* text-align: center; */
+}
+
+.restaurant-name {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.restaurant-quote {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(51, 44, 72);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.menu-button:hover {
+  background-color: rgb(86, 69, 135);
+}
+
+.right-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles for the why-choose-us-container section */
+.why-choose-us-container {
+  padding: 40px;
+  text-align: center;
+  color: #000;
+}
+
+.why-choose-us-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.image-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-container {
+  width: 300px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 260px;
+}
+
+.image-title {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+/* Styles for the premium-foods-container section */
+.premium-foods-container {
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.premium-foods-title {
+  font-size: 2.5rem;
+  color: rgb(51, 44, 72);
+  margin-bottom: 20px;
+}
+
+.food-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.food-image {
+  width: 30%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20%;
+  background-color: rgb(51, 44, 72);
+}
+
+.food-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Queries for responsiveness across different devices */
+
+/* Mobile Devices */
+@media only screen and (max-width: 767px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .restaurant-name {
+    font-size: 2rem;
+  }
+
+  .restaurant-quote {
+    font-size: 1.2rem;
+  }
+
+  .right-content img {
+    max-height: 300px;
+  }
+
+  .food-images {
+    flex-direction: column;
+  }
+
+  .food-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .food-image img {
+    height: auto;
+  }
+
+  .image-containers {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Tablets and Small Screens */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .restaurant-name {
+    font-size: 2.5rem;
+  }
+
+  .restaurant-quote {
+    font-size: 1.5rem;
+  }
+
+  .menu-button {
+    font-size: 1rem;
+  }
+
+  .right-content img {
+    max-height: 400px;
+  }
+
+  .food-images {
+    justify-content: space-around;
+  }
+
+  .image-containers {
+    flex-wrap: wrap;
+  }
+}
+
+/* Larger Screens */
+@media only screen and (min-width: 1024px) {
+  .restaurant-name {
+    font-size: 5rem;
+  }
+
+  .restaurant-quote {
+    font-size: 1.8rem;
+  }
+
+  .menu-button {
+    font-size: 1.2rem;
+  }
+
+  .right-content img {
+    max-height: 800px;
+  }
+
+  .food-image {
+    width: 20%;
+  }
+
+  .food-image img {
+    height: 200px;
+  }
+
+  .premium-foods-title {
+    font-size: 3rem;
+  }
+
+  .food-images {
+    justify-content: space-between;
+  }
+}
+
+/* *************************
+ */
+
+ .arrow-container {
+  position: relative;
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #f39c12; /* Adjust color as needed */
+}
+
+.shaft {
+  position: absolute;
+  width: 10px;
+  height: 80px; /* Adjust as needed */
+  background-color: #f39c12; /* Same color as arrow */
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+
+.tail {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #f39c12; /* Same color as arrow */
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) rotate(-45deg);
+}
+.curly-arrow {
+  display: block;
+  margin: 0 auto;
+}

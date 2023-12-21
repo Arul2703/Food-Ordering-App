@@ -1,0 +1,92 @@
+header {
+  background-color: #ffffff;
+}
+
+.navbar-brand {
+  margin-left: 40px;
+  color: rgb(255, 127, 53);
+  font-family: 'Nunito', sans-serif;
+  font-size:30px;
+  font-weight: bolder;
+}
+.nav-link-bold i.uil-user-md {
+  margin-right: 5px;
+  font-size: 20px;
+  color: #ff6767; /* Set the desired color */
+}
+.user-profile-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6767;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+
+
+.navbar-nav {
+  margin-right: 40px;
+}
+
+.nav-link {
+  color: #333333;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #ff6767;
+  background-color: transparent;
+  border-bottom: none; /* Remove the bottom border */
+}
+
+.btn-primary {
+  /* color: #ffffff;
+  background-color: #ff6767;
+  border-color: #ff6767;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.5; */
+
+
+  background-color: #ff6767;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 25px !important;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+
+  
+}
+
+.btn-primary:hover {
+  background-color: #e24848;
+}
+
+.nav-link-bold {
+  font-weight: bold;
+}
+
+.nav-link-bold:hover {
+  color: #ff6767;
+}
+
+.cart-number {
+  background-color: #f44336;
+  color: #ffffff;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.nav-link-bold i {
+  margin-right: 5px;
+}

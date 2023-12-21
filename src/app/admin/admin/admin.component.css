@@ -1,0 +1,48 @@
+/* Overall Admin Panel styles */
+.admin-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #1e1e2d;
+  color: #fff;
+}
+
+.sidebar-header {
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 12px 20px;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+  color: #fff;
+  background-color: #ff6347;
+}
+
+/* Main Content styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}

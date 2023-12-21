@@ -1,0 +1,33 @@
+<div class="order-summary-container">
+  <div class="payment-status" *ngIf="message">
+    <div>{{ message }}</div>
+  </div>
+
+  <div class="order-details" *ngIf="orderSummary">
+    <h2>Order Summary</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice ID</th>
+          <th>Food Item</th>
+          <th>Image</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderDetail of orderSummary">
+          <td>{{ orderDetail.invoiceId }}</td>
+          <td>{{ orderDetail.foodItemName }}</td>
+          <td>{{ orderDetail.foodItemImageUrl }}</td>
+          <td>{{ orderDetail.foodItemPrice }}</td>
+          <td>{{ orderDetail.foodItemQty }}</td>
+          <td>{{ orderDetail.foodItemPrice * orderDetail.foodItemQty }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="order-status">{{ orderSummary[0]?.orderStatus }}</div>
+    <div class="grand-total">Grand Total: {{ orderSummary[0]?.totalAmount }}</div>
+  </div>
+</div>

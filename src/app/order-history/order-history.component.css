@@ -1,0 +1,92 @@
+.order-history {
+  margin-bottom: 20px;
+}
+
+.order-entry {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-entry:hover {
+  background-color: #f8f8f8;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.order-id,
+.order-date {
+  font-weight: normal;
+}
+
+.order-id span,
+.order-date span {
+  font-weight: bold;
+}
+
+.order-status {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.pending-order {
+  color: red;
+}
+
+.food-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.food-item {
+  margin-bottom: 5px;
+}
+
+.food-name {
+  font-weight: bold;
+}
+
+.detailed-order {
+  margin-top: 20px;
+}
+
+.detailed-order h2 {
+  margin-bottom: 10px;
+}
+
+.detailed-order p {
+  margin-bottom: 5px;
+}
+
+.detailed-order .food-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+}
+
+.detailed-order .food-item h4 {
+  margin-bottom: 5px;
+}
+
+.detailed-order .food-item p {
+  margin: 0;
+}
+
+.total-amount {
+  text-align: right;
+  font-weight: bold;
+  color: #ff6767;
+  font-size: 1.2em;
+}
+

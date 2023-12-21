@@ -1,0 +1,15 @@
+<div class="otp-container">
+  <h2>Verify OTP</h2>
+  <p class="instruction">Please enter the OTP sent to your registered email address.</p>
+  <div class="otp-input">
+    <input type="text" [(ngModel)]="otp" (ngModelChange)="onOtpChanged()" [disabled]="isVerifying" placeholder="Enter OTP">
+  </div>
+  <div class="otp-actions">
+    <div class="resend-link" *ngIf="isResending">
+      Resend OTP in {{ remainingTime }} seconds. <a href="#" (click)="resendOtp()">Resend now</a>
+    </div>
+    <button class="verify-btn" (click)="verifyOtp()" [disabled]="isVerifying">Verify OTP</button>
+  </div>
+  <div class="otp-error" *ngIf="verificationError">{{ verificationError }}</div>
+  <div class="otp-success" *ngIf="verificationSuccess">{{ successMessage }}</div>
+</div>

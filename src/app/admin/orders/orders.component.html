@@ -1,0 +1,17 @@
+<div class="orders-container">
+  <h2>Your Orders</h2>
+  <div class="orders-list">
+    <div class="order-item" *ngFor="let order of orders">
+      <div class="order-details">
+        <p class="order-id">Order ID: {{ order.id }}</p>
+        <p class="order-date">Date: {{ order.date }}</p>
+        <p class="order-customer">Customer: {{ order.customer }}</p>
+        <!-- Add more order details as needed -->
+      </div>
+      <div class="order-actions">
+        <button class="view-details-btn" (click)="viewOrderDetails(order.id)">View Details</button>
+        <!-- Add more actions as needed -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="order-history">
+  <div class="order-entry" *ngFor="let invoice of orderHistory" (click)="showOrderDetails(invoice)">
+    <div class="order-info">
+      <div class="order-id">Order Id: <span>{{ invoice.invoiceId }}</span></div>
+      <div class="order-date">Order Date: <span>{{ invoice.orderDate | date }}</span></div>
+      <div class="order-status" [ngClass]="{ 'pending-order': invoice.orderStatus === 'Pending' }">Status: {{ invoice.orderStatus }}</div>
+    </div>
+    <div class="food-items">
+      <div class="food-item" *ngFor="let order of invoice.orderDetails">
+        <div class="food-name">{{ order.foodItemName }}</div>
+        <div class="food-qty">Qty: {{ order.foodItemQty }}</div>
+      </div>
+    </div>
+    <div class="total-amount">Total: {{ calculateTotalAmount(invoice.orderDetails) | currency: 'INR' }}</div>
+  </div>
+</div>
+
+
+
+
+<!-- Detailed Order Information -->
+<div *ngIf="selectedInvoice" class="detailed-order">
+  <h2>Order Details - Invoice ID: {{ selectedInvoice.invoiceId }}</h2>
+  <p>Order Date: {{ selectedInvoice.orderDate | date }}</p>
+  <p>Order Status: {{ selectedInvoice.orderStatus }}</p>
+  <div class="food-items">
+    <div *ngFor="let order of selectedInvoice.orderDetails">
+      <div class="food-item">
+        <h4>{{ order.foodItemName }}</h4>
+        <p>Price: {{ order.foodItemPrice }}</p>
+        <p>Quantity: {{ order.foodItemQty }}</p>
+      </div>
+    </div>
+  </div>
+  <p>Total Amount: {{ calculateTotalAmount(selectedInvoice.orderDetails) }}</p>
+</div>
