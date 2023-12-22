@@ -13,7 +13,11 @@ The application extensively uses Angular features like guards for component prot
 
 - **Dependency Injection:** Utilized for loose coupling, enhancing code maintainability. 🧩
 - **Environment Configuration:** Centralized management of hardcoded values in the environment file. 📁
-- **State Management:** Leveraging BehaviorSubjects for efficient state management. 🔄
+<<<<<<< HEAD
+- **State Management:** Using BehaviorSubjects for efficient state management. 🔄
+=======
+- **State Management:** Using BehaviorSubjects for efficient state management. 🔄
+>>>>>>> 6f02452042d66fbc6fbb9d9127f35bca10ce49ef
 - **Custom Pipe:** Implemented to facilitate food item filtering based on categories. 🥦
 - **JWT Authentication:** Ensuring secure and seamless user authentication. 🔐
 - **Client-Side Validations:** Implemented to enhance data integrity and security. 🛡️
