@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="successMessage" class="success-message" [@fadeInOut]>
   {{ successMessage }}
 </div>
@@ -26,30 +27,60 @@
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" formControlName="name" class="form-control" required>
-        <div *ngIf="userProfileForm.controls['name'].hasError('required') && userProfileForm.controls['name'].touched" class="error-container">
-          <span class="error-icon">error</span>
-          Name is required.
+        <div class="error-message" *ngIf="userProfileForm.get('name')?.invalid && userProfileForm.get('name')?.touched">
+          <div class="error-container">
+            <span class="error-icon">error</span>
+              <div *ngIf="userProfileForm.get('name')?.hasError('required')">Name is required</div>
+              <div *ngIf="userProfileForm.get('name')?.hasError('pattern')">Invalid name format</div>
+          </div>
+          
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" formControlName="email" class="form-control" required>
+        <div class="error-message" *ngIf="userProfileForm.get('email')?.invalid && userProfileForm.get('email')?.touched">
+          <div class="error-container">
+            <span class="error-icon">error</span>
+            <div *ngIf="userProfileForm.get('email')?.hasError('required')">Email is required</div>
+            <div *ngIf="userProfileForm.get('email')?.hasError('pattern')">Invalid email format</div>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="mobileNumber">Mobile Number</label>
         <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control">
+        <div class="error-message" *ngIf="userProfileForm.get('mobileNumber')?.invalid && userProfileForm.get('mobileNumber')?.touched">
+          <div class="error-container">
+            <span class="error-icon">error</span>
+            <div *ngIf="userProfileForm.get('mobileNumber')?.hasError('required')">Mobile number is required</div>
+            <div *ngIf="userProfileForm.get('mobileNumber')?.hasError('pattern')">Invalid mobile number format</div>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="address">Address</label>
         <input type="text" id="address" formControlName="address" class="form-control">
+        <div class="error-message" *ngIf="userProfileForm.get('address')?.invalid && userProfileForm.get('address')?.touched">
+          <div class="error-container">
+            <span class="error-icon">error</span>
+            <div *ngIf="userProfileForm.get('address')?.hasError('required')">Address is required</div>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="pincode">Pincode</label>
         <input type="text" id="pincode" formControlName="pincode" class="form-control">
+        <div class="error-message" *ngIf="userProfileForm.get('pinCode')?.invalid && userProfileForm.get('pinCode')?.touched">
+          <div class="error-container">
+            <span class="error-icon">error</span>
+            <div *ngIf="userProfileForm.get('pinCode')?.hasError('required')">Pin code is required</div>
+            <div *ngIf="userProfileForm.get('pinCode')?.hasError('pattern')">Invalid pin code format</div>
+          </div>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
-      <!-- Show success message if available -->
     
   </div>
 </div>

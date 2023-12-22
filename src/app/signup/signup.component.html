@@ -82,12 +82,14 @@
       <div class="error-message" *ngIf="signupForm.controls['confirmPassword'].hasError('passwordsNotMatched') && signupForm.controls['confirmPassword'].touched">
         <div class="error-container">
           <span class="error-icon">error</span>
-          Passwords do not match.
+          Passwords does not match.
         </div>
       </div>
     </div>
     <div>
-      <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+      <button type="submit" >Submit</button>
+      <!-- <button type="submit" [disabled]="signupForm.invalid">Submit</button> -->
+
     </div>
   </form>
   <div class="login-link">

@@ -44,7 +44,16 @@ export class SignupComponent {
           }
         );
     } else {
-      this.signupForm.markAllAsTouched();
+      const formIsPristine = Object.keys(this.signupForm.controls).every(key => {
+        const control = this.signupForm.get(key);
+        return control?.pristine; 
+      });
+  
+      if (formIsPristine) {
+        this.signupForm.markAllAsTouched();
+      } else {
+        this.signupForm.markAllAsTouched();
+      }
     }
   }
 

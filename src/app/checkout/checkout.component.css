@@ -43,12 +43,18 @@
 .error-message {
   color: red;
   margin-top: 5px;
+  font-size: 14px;
+}
+
+
+.error-icon {
+  display: inline-block;
+  font-family: "Material Icons";
+  font-size: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.error-container {
   display: flex;
   align-items: center;
 }
-
-.error-icon {
-  margin-right: 5px;
-  font-size: 16px;
-}
-

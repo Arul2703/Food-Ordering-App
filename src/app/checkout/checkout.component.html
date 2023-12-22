@@ -1,5 +1,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<div class="error-message" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+<!-- <div class="error-message" *ngIf="checkoutForm.invalid && checkoutForm.dirty || checkoutForm.touched">
+  Please fill out all required fields correctly before submitting.
+</div> -->
 <h1 style="text-align: center;">Checkout</h1>
 
 <div class="form-container" *ngIf="!orderSummary && !paymentStatus">
@@ -8,19 +13,32 @@
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" formControlName="name" placeholder="Enter your name">
       <div class="error-message" *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched">
-        <span class="material-icons error-icon">error</span>
-        <div *ngIf="checkoutForm.get('name')?.hasError('required')">Name is required</div>
-        <div *ngIf="checkoutForm.get('name')?.hasError('pattern')">Invalid name format</div>
+        <div class="error-container">
+          <span class="error-icon">error</span>
+          <div *ngIf="checkoutForm.get('name')?.hasError('required')">Name is required</div>
+          <div *ngIf="checkoutForm.get('name')?.hasError('pattern')">Please enter your Firstname Lastname</div>
+        </div>
+        
       </div>
     </div>
+
+    <!-- <div class="error-message" *ngIf="signupForm.controls['name'].hasError('minlength') && signupForm.controls['name'].touched">
+      <div class="error-container">
+        <span class="error-icon">error</span>
+        Name should have at least 5 characters.
+      </div>
+    </div> -->
 
     <div>
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" formControlName="email" placeholder="Enter your email">
       <div class="error-message" *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched">
-        <span class="material-icons error-icon">error</span>
-        <div *ngIf="checkoutForm.get('email')?.hasError('required')">Email is required</div>
-        <div *ngIf="checkoutForm.get('email')?.hasError('pattern')">Invalid email format</div>
+        <div class="error-container">
+          <span class="error-icon">error</span>
+          <div *ngIf="checkoutForm.get('email')?.hasError('required')">Email is required</div>
+          <div *ngIf="checkoutForm.get('email')?.hasError('pattern')">Invalid email format</div>
+        </div>
+        
       </div>
     </div>
 
@@ -54,8 +72,10 @@
     </div>
 
     <div class="button-container">
-      <button type="submit" [disabled]="checkoutForm.invalid">Submit</button>
+      <button type="submit" >Submit</button>
     </div>
+
+    
   </form>
 </div>
 

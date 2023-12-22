@@ -31,6 +31,7 @@ export class CheckoutComponent {
   }
 
   onSubmit() {
+    console.log("submitted");
     if (this.checkoutForm.valid) {
       try {
         this.processCheckout();
@@ -38,7 +39,17 @@ export class CheckoutComponent {
         this.logService.logErrorWithDetails(environment.messages.checkoutFailure, error);
       }
     } else {
-      this.checkoutForm.markAllAsTouched();
+      const formIsPristine = Object.keys(this.checkoutForm.controls).every(key => {
+        const control = this.checkoutForm.get(key);
+        return control?.pristine; // Check if the control is pristine
+      });
+  
+      if (formIsPristine) {
+        this.checkoutForm.markAllAsTouched();
+        console.log(this.errorMessage);
+      } else {
+        this.checkoutForm.markAllAsTouched();
+      }
     }
   }
 

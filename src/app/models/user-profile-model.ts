@@ -24,22 +24,19 @@ export class UserProfileModel {
     return {
       name: ['', [
         Validators.required,
-        Validators.pattern('^[A-Z][a-zA-Z]{2,}\\s[A-Z][a-zA-Z\\s]*$'),
-        Validators.minLength(5),
-        Validators.maxLength(50)
+        Validators.pattern('^[A-Z][a-zA-Z]{2,}\\s[A-Z][a-zA-Z\\s]*$')
       ]],
       email: ['', [
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9._%+-]*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$')
       ]],
       mobileNumber: ['', [
-        Validators.pattern('^\\+[0-9]{12}$')
+        Validators.pattern('^\\+91[6-9]\\d{9}$')
       ]],
-      address: [''],
+      address: ['', Validators.required],
       pincode: ['', [
-        Validators.required
+        Validators.pattern('^[1-9]\\d{5}$')
       ]]
-      // Add validation rules for other fields as needed
     };
   }
 }

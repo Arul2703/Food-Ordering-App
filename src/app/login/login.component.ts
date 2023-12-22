@@ -60,7 +60,17 @@ export class LoginComponent implements OnInit {
           }
         );
     } else {
-      this.loginForm.markAllAsTouched();
+      // this.loginForm.markAllAsTouched();
+      const formIsPristine = Object.keys(this.loginForm.controls).every(key => {
+        const control = this.loginForm.get(key);
+        return control?.pristine; // Check if the control is pristine
+      });
+  
+      if (formIsPristine) {
+        this.loginForm.markAllAsTouched();
+      } else {
+        this.loginForm.markAllAsTouched();
+      }
     }
     setTimeout(() => {
       this.showInvalidCredentialsMessage = false;
