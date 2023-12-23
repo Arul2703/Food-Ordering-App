@@ -22,7 +22,7 @@ export class SignupComponent {
   private unsubscribe$: Subject<void> = new Subject<void>();
   constructor(private formBuilder: FormBuilder, private accountService: AccountService, private router: Router) {
     this.userModel = new UserModel();
-    this.signupForm = this.formBuilder.group(UserModel.getValidationRules());
+    this.signupForm = this.formBuilder.group(UserModel.getValidationRules(this.accountService));
   }
 
   onSubmit() {

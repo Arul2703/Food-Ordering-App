@@ -1,4 +1,6 @@
 import { AbstractControl, ValidatorFn, Validators } from "@angular/forms";
+import { AccountService } from "../services/account.service";
+import { emailAvailabilityValidator } from "../validators/email.validators";
 
 export class UserModel {
 
@@ -24,7 +26,7 @@ export class UserModel {
     this.user = null; 
   }
 
-  static getValidationRules(): { [key: string]: any } {
+  static getValidationRules(accountService: AccountService): { [key: string]: any } {
     return {
       name: ['', [
         Validators.required,
@@ -33,9 +35,11 @@ export class UserModel {
         Validators.maxLength(50)
       ]],
       email: ['', [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9._%+-]*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$')
-      ]],
+      Validators.required,
+      Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9._%+-]*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$'),
+    ], [
+      emailAvailabilityValidator(accountService) // Apply the custom async validator
+    ]],
       password: ['', [
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).{6,}$'),

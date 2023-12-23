@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, catchError, takeUntil, tap, throwError } from 'rxjs';
 import { UserModel } from '../models/signup-model.model';
 import { LoginModel } from '../models/login-model';
 import { AuthService } from './auth.service';
@@ -21,14 +21,27 @@ export class AccountService {
   private successMessageSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   public successMessage$: Observable<string | null> = this.successMessageSubject.asObservable();
   private signUpEmail: string | null = null;
+  private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private http: HttpClient, private authService: AuthService,private logger: NGXLogger,private logService :LogService) {}
+
+  checkEmailAvailability(email: string): Observable<boolean> {
+    const url = `${this.baseUrl}${environment.apiUrls.isEmailAvailable}?email=${email}`;
+    console.log("Checking email availability");
+    return this.http.get<boolean>(url).pipe(
+      takeUntil(this.destroy$),
+      catchError(error => {
+        console.log(error);
+        this.logService.logErrorWithDetails(environment.messages.errorCheckingEmailAvailability, error);
+        return throwError(error);
+      })
+    );
+  }
 
   signup(signupData: UserModel): Observable<any> {
     this.signUpEmail = signupData.email;
     const url = `${this.baseUrl}${environment.apiUrls.signup}`;
     const jsonPayload = JSON.stringify(signupData);
-
     const headers = new HttpHeaders().set(environment.httpHeaders.contentType, environment.httpHeaders.json);
     return this.http.post(url, jsonPayload, { headers }).pipe(
       catchError(error => {
@@ -53,6 +66,7 @@ export class AccountService {
         this.logService.logInfo(environment.messages.loginSuccessful);
       }),
       catchError(error => {
+        console.log(error);
         this.logService.logErrorWithDetails(environment.messages.loginFailure, error);
         throw error; 
       })
@@ -145,5 +159,10 @@ export class AccountService {
         return throwError(errorMessage);
       })
     );
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

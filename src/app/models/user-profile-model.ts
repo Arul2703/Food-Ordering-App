@@ -8,7 +8,8 @@
 //   pincode!: number;
 //   profilePicture!: string;
 // }
-import { Validators } from '@angular/forms';
+import { AbstractControl, ValidatorFn, Validators } from '@angular/forms';
+import { pincodeValidator } from '../validators/pincode.validator';
 
 export class UserProfileModel {
   profileId!: number;
@@ -33,10 +34,12 @@ export class UserProfileModel {
       mobileNumber: ['', [
         Validators.pattern('^\\+91[6-9]\\d{9}$')
       ]],
-      address: ['', Validators.required],
+      address: [],
       pincode: ['', [
-        Validators.pattern('^[1-9]\\d{5}$')
+        // Validators.pattern('^[1-9]\\d{5}$')
+        pincodeValidator()
       ]]
     };
   }
 }
+

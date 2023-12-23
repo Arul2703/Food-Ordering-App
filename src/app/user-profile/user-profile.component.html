@@ -71,11 +71,11 @@
       <div class="form-group">
         <label for="pincode">Pincode</label>
         <input type="text" id="pincode" formControlName="pincode" class="form-control">
-        <div class="error-message" *ngIf="userProfileForm.get('pinCode')?.invalid && userProfileForm.get('pinCode')?.touched">
+        <div class="error-message" *ngIf="userProfileForm.get('pincode')?.invalid && userProfileForm.get('pincode')?.touched">
           <div class="error-container">
             <span class="error-icon">error</span>
-            <div *ngIf="userProfileForm.get('pinCode')?.hasError('required')">Pin code is required</div>
-            <div *ngIf="userProfileForm.get('pinCode')?.hasError('pattern')">Invalid pin code format</div>
+            <div *ngIf="userProfileForm.get('pincode')?.hasError('required')">Pin code is required</div>
+            <div *ngIf="userProfileForm.get('pincode')?.hasError('invalidPincode')">Please enter a 6 digit pincode</div>
           </div>
         </div>
       </div>

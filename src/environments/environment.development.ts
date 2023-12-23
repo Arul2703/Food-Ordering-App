@@ -20,7 +20,8 @@ export const environment = {
     orderHistory: '/OrderHistory',
     log:'/logs',
     increaseQuantity:'/increase',
-    decreaseQuantity:'/decrease'
+    decreaseQuantity:'/decrease',
+    isEmailAvailable: '/Account/IsEmailAvailable'
   },
   httpHeaders: {
     contentType: 'Content-Type',
@@ -77,6 +78,7 @@ export const environment = {
     cartRemoveError: 'Failed to remove item from the cart. Please try again later.',
     orderSummaryError: 'Error fetching order summary. Please try again later.',
     orderSummaryMessageError: 'Error fetching order summary message. Please try again later.',
+    errorCheckingEmailAvailability: 'Failed to check email availability. Please try again later.',
     loggerSuccessMessage:'Logged Successfully',
     loggerFailureMessage:'An error occurred while storing the log',
     cartAddSuccess: 'CartItem added to the cart.',
