@@ -45,14 +45,7 @@ export class UserProfileComponent implements OnInit {
     public authService: AuthService,
     private logService : LogService
   ) {
-    // this.userProfileForm = this.fb.group({
-    //   name: ['', Validators.required],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   mobileNumber: [''],
-    //   address: [''],
-    //   pincode: [''],
-    //   profilePicture: [null]
-    // });
+   
     this.userProfileModel = new UserProfileModel();
     this.userProfileForm = this.fb.group(UserProfileModel.getValidationRules());
   }
@@ -160,6 +153,19 @@ export class UserProfileComponent implements OnInit {
           this.successMessage = null;
         }
       );
+    }
+    else{
+      const formIsPristine = Object.keys(this.userProfileForm.controls).every(key => {
+        const control = this.userProfileForm.get(key);
+        return control?.pristine; // Check if the control is pristine
+      });
+  
+      if (formIsPristine) {
+        this.userProfileForm.markAllAsTouched();
+        console.log(this.errorMessage);
+      } else {
+        this.userProfileForm.markAllAsTouched();
+      }
     }
   }
 }

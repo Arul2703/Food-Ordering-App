@@ -11,7 +11,7 @@ export const environment = {
     resendOtp: '/Account/ResendOtp',
     verifyOtp: '/Account/VerifyOtp',
     gallery: '/Gallery',
-    cart: '/cart',
+    cart: '/Cart',
     cartIncrease: '/cart/${itemId}/increase',
     cartDecrease: '/cart/${itemId}/decrease',
     checkout: '/Checkout', 

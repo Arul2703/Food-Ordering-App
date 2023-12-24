@@ -10,6 +10,8 @@ import { OtpVerificationModel } from '../models/otp-verification-model';
 import { environment } from 'src/environments/environment';
 import { NGXLogger } from 'ngx-logger';
 import { LogService } from './log.service';
+import { CartService } from './cart.service';
+import { CartStateService } from './cart-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,14 @@ export class AccountService {
   private signUpEmail: string | null = null;
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private http: HttpClient, private authService: AuthService,private logger: NGXLogger,private logService :LogService) {}
+  constructor(
+    private http: HttpClient, 
+    private authService: AuthService,
+    private logger: NGXLogger,
+    private logService :LogService,
+    private cartService: CartService,
+    private cartStateService: CartStateService
+    ) {}
 
   checkEmailAvailability(email: string): Observable<boolean> {
     const url = `${this.baseUrl}${environment.apiUrls.isEmailAvailable}?email=${email}`;
@@ -60,6 +69,8 @@ export class AccountService {
       tap(response => {
         this.authService.login(response.token, response.user);
         this.currentUserSubject.next(response.user);
+        this.cartService.fetchCartItems();
+        this.initializeCartComponents();
         this.setUserRole(response.user.isAdmin);
         this.setSuccessMessage(environment.messages.loginSuccessful); 
         // this.logger.info(environment.messages.loginSuccessful, response);
@@ -164,5 +175,10 @@ export class AccountService {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  private initializeCartComponents(): void {
+    
+      this.cartStateService.subscribeToCartItems();
   }
 }

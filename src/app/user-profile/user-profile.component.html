@@ -31,7 +31,7 @@
           <div class="error-container">
             <span class="error-icon">error</span>
               <div *ngIf="userProfileForm.get('name')?.hasError('required')">Name is required</div>
-              <div *ngIf="userProfileForm.get('name')?.hasError('pattern')">Invalid name format</div>
+              <div *ngIf="userProfileForm.get('name')?.hasError('pattern')">Please enter your Firstname Lastname</div>
           </div>
           
         </div>
@@ -43,7 +43,7 @@
           <div class="error-container">
             <span class="error-icon">error</span>
             <div *ngIf="userProfileForm.get('email')?.hasError('required')">Email is required</div>
-            <div *ngIf="userProfileForm.get('email')?.hasError('pattern')">Invalid email format</div>
+            <div *ngIf="userProfileForm.get('email')?.hasError('pattern')">Please enter a valid email address</div>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <div class="error-container">
             <span class="error-icon">error</span>
             <div *ngIf="userProfileForm.get('mobileNumber')?.hasError('required')">Mobile number is required</div>
-            <div *ngIf="userProfileForm.get('mobileNumber')?.hasError('pattern')">Invalid mobile number format</div>
+            <div *ngIf="userProfileForm.get('mobileNumber')?.hasError('pattern')">Please enter a valid mobile number +91XXXXXXXXXX</div>
           </div>
         </div>
       </div>

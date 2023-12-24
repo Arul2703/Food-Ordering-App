@@ -36,7 +36,7 @@
         <div class="error-container">
           <span class="error-icon">error</span>
           <div *ngIf="checkoutForm.get('email')?.hasError('required')">Email is required</div>
-          <div *ngIf="checkoutForm.get('email')?.hasError('pattern')">Invalid email format</div>
+          <div *ngIf="checkoutForm.get('email')?.hasError('pattern')">Please enter a valid email address</div>
         </div>
         
       </div>
@@ -46,9 +46,11 @@
       <label for="mobileNumber">Mobile Number:</label>
       <input type="text" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="Enter your mobile number">
       <div class="error-message" *ngIf="checkoutForm.get('mobileNumber')?.invalid && checkoutForm.get('mobileNumber')?.touched">
-        <span class="material-icons error-icon">error</span>
-        <div *ngIf="checkoutForm.get('mobileNumber')?.hasError('required')">Mobile number is required</div>
-        <div *ngIf="checkoutForm.get('mobileNumber')?.hasError('pattern')">Invalid mobile number format</div>
+        <div class="error-container">
+          <span class="error-icon">error</span>
+          <div *ngIf="checkoutForm.get('mobileNumber')?.hasError('required')">Mobile number is required</div>
+          <div *ngIf="checkoutForm.get('mobileNumber')?.hasError('pattern')">Please enter a valid mobile number +91XXXXXXXXXX</div>
+        </div>
       </div>
     </div>
 
@@ -56,8 +58,10 @@
       <label for="address">Address:</label>
       <textarea id="address" name="address" formControlName="address" placeholder="Enter your address"></textarea>
       <div class="error-message" *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched">
-        <span class="material-icons error-icon">error</span>
-        <div *ngIf="checkoutForm.get('address')?.hasError('required')">Address is required</div>
+        <div class="error-container">
+          <span class="error-icon">error</span>
+          <div *ngIf="checkoutForm.get('address')?.hasError('required')">Address is required</div>
+        </div>
       </div>
     </div>
 
@@ -65,9 +69,11 @@
       <label for="pinCode">Pin Code:</label>
       <input type="text" id="pinCode" name="pinCode" formControlName="pinCode" placeholder="Enter your pin code">
       <div class="error-message" *ngIf="checkoutForm.get('pinCode')?.invalid && checkoutForm.get('pinCode')?.touched">
-        <span class="material-icons error-icon">error</span>
-        <div *ngIf="checkoutForm.get('pinCode')?.hasError('required')">Pin code is required</div>
-        <div *ngIf="checkoutForm.get('pinCode')?.hasError('pattern')">Invalid pin code format</div>
+        <div class="error-container">
+          <span class="error-icon">error</span>
+          <div *ngIf="checkoutForm.get('pinCode')?.hasError('required')">Pin code is required</div>
+          <div *ngIf="checkoutForm.get('pinCode')?.hasError('pattern')">Please enter a 6 digit pincode</div>
+        </div>
       </div>
     </div>
 

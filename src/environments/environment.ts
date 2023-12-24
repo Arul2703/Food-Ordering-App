@@ -10,7 +10,7 @@ export const environment = {
     userProfile: '/Account/UserProfile',
     resendOtp: '/Account/ResendOtp',
     verifyOtp: '/Account/VerifyOtp',
-    cart: '/cart',
+    cart: '/Cart',
     gallery: '/Gallery',
     cartIncrease: '/cart/${itemId}/increase',
     cartDecrease: '/cart/${itemId}/decrease',

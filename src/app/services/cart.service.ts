@@ -19,8 +19,7 @@ export class CartService {
     private authService: AuthService,
     private logService: LogService
   ) {
-    this.fetchCartItems();
-  }
+    }
 
   addToCart(cartItem: CartItem): Observable<any> {
     const endpoint = environment.apiUrls.cart;
@@ -67,7 +66,7 @@ export class CartService {
       );
   }
 
-  private fetchCartItems(): void {
+  public fetchCartItems(): void {
     this.getCartItems().subscribe(
       (cartItems) => {
         this.cartItemsSubject.next(cartItems);
@@ -79,9 +78,9 @@ export class CartService {
   }
 
   private getCartItems(): Observable<CartItem[]> {
-    const url = `${this.baseUrl}${environment.apiUrls.cart}`;
+    const userId = this.authService.getCurrentUser()?.userId;
+    const url = `${this.baseUrl}${environment.apiUrls.cart}/${userId}`;
     const errorMessage = environment.messages.cartFetchFailure;
-
     return this.http.get<CartItem[]>(url, { headers: this.getAuthHeaders() }).pipe(
       catchError(error => {
         this.logService.logErrorWithDetails(errorMessage, error);

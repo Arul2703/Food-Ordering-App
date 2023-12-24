@@ -28,7 +28,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
-    this.cartStateService.cartItems$
+    if(this.currentUser){
+      this.cartStateService.cartItems$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (cartItems: CartItem[]) => {
@@ -40,6 +41,8 @@ export class CartComponent implements OnInit {
         }
       );
     this.fetchCartItems();
+    }
+    
   }
 
   ngOnDestroy(): void {

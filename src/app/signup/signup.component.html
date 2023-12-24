@@ -4,7 +4,7 @@
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" formControlName="name" placeholder="Enter your fullname" [ngClass]="{ 'invalid': signupForm.controls['name'].invalid && signupForm.controls['name'].touched }">
+      <input type="text" id="name" name="name" formControlName="name" placeholder="Enter your Firstname Lastname" [ngClass]="{ 'invalid': signupForm.controls['name'].invalid && signupForm.controls['name'].touched }">
 
       <div class="error-message" *ngIf="signupForm.controls['name'].hasError('required') && signupForm.controls['name'].touched">
         <div class="error-container">

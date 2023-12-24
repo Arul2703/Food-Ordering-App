@@ -10,17 +10,19 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<UserModel | null> = new BehaviorSubject<UserModel | null>(null);
   public currentUser$: Observable<UserModel | null> = this.currentUserSubject.asObservable();
-
+  public isLoggedIn = false;
   constructor(private router: Router) {}
 
   login(token: string, user: UserModel): void {
     localStorage.setItem(environment.localStorageKeys.token, token);
+    this.isLoggedIn = true;
     this.currentUserSubject.next(user);
     this.router.navigate([environment.routes.menu]);
   }
 
   logout(): void {
     localStorage.removeItem(environment.localStorageKeys.token);
+    this.isLoggedIn = false;
     this.currentUserSubject.next(null);
   }
 

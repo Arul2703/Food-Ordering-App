@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, takeUntil } from 'rxjs';
 import { CartItem } from '../models/cart-item';
 import { CartService } from './cart.service';
+import { LogService } from './log.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class CartStateService {
   private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
   public cartItems$: Observable<CartItem[]> = this.cartItemsSubject.asObservable();
   public cartCount$: Observable<number>; 
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,private logService:LogService) {
     this.cartService.cartItems$.subscribe((cartItems) => {
       this.cartItemsSubject.next(cartItems);
     });
@@ -103,11 +106,29 @@ export class CartStateService {
   getCartItems(): CartItem[] {
     return this.cartItemsSubject.getValue();
   }
+
+  public subscribeToCartItems(): void {
+    this.cartService.cartItems$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        (cartItems: CartItem[]) => {
+          this.cartItemsSubject.next(cartItems);
+        },
+        (error: any) => {
+          // Handle error fetching cart items after login
+          this.logService.logErrorWithDetails(environment.messages.cartFetchFailure, error);
+        }
+      );
+  }
+  
   clearCart() {
     this.cartItemsSubject.next([]); 
     this.cartCount$ = this.cartItemsSubject.pipe(map((items) => this.calculateCartCount(items)));
   }
   
-  
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
   
 }
