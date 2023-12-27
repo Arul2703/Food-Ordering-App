@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'order-summary', component: OrderSummaryComponent, canActivate: [UserGuard] },
   { path: 'order-history', component: OrderHistoryComponent, canActivate: [UserGuard] }, 
   // {path:'dashboard',component:DashboardComponent, canActivate: [AdminGuard]},
-  {path:'create-food-item',component:FoodItemFormComponent},
+  {path:'add-food-item',component:FoodItemFormComponent},
    {path:'menu-list',component:MenuItemComponent},
    {path:'user-profile',component:UserProfileComponent,canActivate: [UserGuard]},
    { path: 'edit-food-item/:id', component: FoodItemEditComponent },

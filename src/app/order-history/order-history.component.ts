@@ -16,7 +16,7 @@ export class OrderHistoryComponent implements OnInit {
   orderHistory: InvoiceDetails[] = [];
   
   userId = 1; 
-  selectedInvoice: InvoiceDetails | undefined;
+  selectedInvoice: InvoiceDetails | null = null;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -35,7 +35,6 @@ export class OrderHistoryComponent implements OnInit {
     this.orderService.getOrderHistory(userId!).pipe(takeUntil(this.unsubscribe$)).subscribe(
       (data) => {
         this.orderHistory = data;
-        console.log(data);
       },
       (error) => {
         this.logService.logErrorWithDetails(environment.messages.orderHistoryFailure, error);
@@ -48,10 +47,28 @@ export class OrderHistoryComponent implements OnInit {
   }
 
   calculateTotalAmount(orderDetails: OrderDetails[]): number {
-    if (orderDetails.length > 0) {
-      return orderDetails[0].totalAmount;
+    let totalAmount = 0;
+  
+    orderDetails.forEach((order) => {
+      totalAmount += order.foodItemPrice * order.foodItemQty;
+    });
+  
+    return totalAmount;
+  }
+  
+  toggleOrderDetails(invoice: InvoiceDetails): void {
+    if (this.selectedInvoice && this.selectedInvoice === invoice) {
+      console.log('toogle');
+      // If the selected invoice is already shown, collapse it
+      this.selectedInvoice = null;
+    } else {
+      // If a different invoice is clicked, show its details
+      this.selectedInvoice = invoice;
     }
-    return 0;
+  }
+
+  getBase64Image(base64String: string): string {
+    return environment.userProfileFields.base64Prefix + base64String;
   }
 
   ngOnDestroy(): void {

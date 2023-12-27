@@ -12,8 +12,6 @@ const adminRoutes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      // Define child routes for admin section
-      // For example:
       // { path: 'dashboard', component: DashboardComponent },
       // { path: 'orders', component: OrdersComponent },
       {path:'dashboard',component:DashboardComponent, canActivate: [AdminGuard]},
