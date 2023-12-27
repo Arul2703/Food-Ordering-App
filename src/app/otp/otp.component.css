@@ -1,23 +1,39 @@
+
 .otp-container {
-  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  text-align: center;
+  width: 300px;
+  margin: 20px auto;
 }
 
-.otp-input {
+.otp-container h2 {
+  font-size: 24px;
   margin-bottom: 10px;
+  color: #333;
+}
+
+.instruction {
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .otp-input input {
-  padding: 10px;
+  width: calc(100% - 20px);
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .otp-actions {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .resend-btn,
@@ -26,8 +42,8 @@
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  margin: 0 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .resend-btn {
@@ -37,14 +53,21 @@
 
 .verify-btn {
   background-color: #4CAF50;
-  color: #250a0a;
+  color: #fff;
 }
 
 .resend-timer {
-  margin-left: 10px;
+  font-size: 14px;
+  color: #888;
 }
 
-.otp-error {
-  color: red;
+.otp-message {
   margin-top: 10px;
 }
+
+.otp-error,
+.otp-success {
+  color: red;
+  /* Additional styles for error and success messages */
+}
+

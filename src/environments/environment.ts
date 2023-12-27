@@ -3,7 +3,7 @@ export const environment = {
   logLevel:'DEBUG',
   baseUrl:'http://localhost:5038/api',
   orderApiUrl: 'http://localhost:5038/api/Order',
-  menuApiUrl: 'https://localhost:7249/api/Menu',
+  menuApiUrl: 'http://localhost:5038/api/Menu',
   apiUrls: {
     signup: '/Account/Signup',
     login: '/Account/Login',
@@ -111,13 +111,11 @@ export const environment = {
     menu: '/menu',
     login:'/login',
     verifyOtp:'/verify-otp',
-    addFoodItem:'/create-food-item',
+    addFoodItem:'/add-food-item',
     editFoodItem:'/edit-food-item',
     orderSummary:'/order-summary',
     menuList:'/menu-list',
     checkout:'/checkout',
-
-
   },
   authHeaders: {
     authorization: 'Authorization',

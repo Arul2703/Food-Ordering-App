@@ -77,10 +77,7 @@ export class OtpComponent implements OnInit {
         this.verificationSuccess = true;
         this.successMessage = environment.messages.otpVerificationSuccess;
         this.accountService.clearSuccessMessage();
-
-        setTimeout(() => {
-          this.router.navigate([environment.routes.login]);
-        }, 2000);
+        this.router.navigate([environment.routes.login])
       },
       (error) => {
         this.verificationError = environment.messages.otpVerificationFailure;
